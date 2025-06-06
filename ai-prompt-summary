@@ -1,0 +1,63 @@
+Prompt Summary for AI
+
+Create a Power Apps tool that generates a dynamic maternity leave plan based on employee-specific inputs.
+
+The app collects:
+
+Employee name
+
+Due date
+
+Optional WFH (work-from-home) start date
+
+Toggles for:
+
+Taking all 6 weeks of M3 paid leave (2 weeks child care + 4 weeks maternity)
+
+Using PTO (with specified number of days)
+
+Taking unpaid leave (with specified number of days)
+
+Doing a transition plan (with number of transition months)
+
+The app logic then:
+
+Builds a day-by-day leave schedule starting from the due date.
+
+Skips weekends and uses AppPayrollCalendar2025 to:
+
+Recognize holidays
+
+Account for observed holidays (e.g., if a holiday falls on a Saturday, it’s observed on Friday).
+
+Inserts leave types in strict order:
+
+Paid Child Care Leave (10 weekdays)
+
+Paid Maternity Leave (20 weekdays)
+
+PTO, if enabled
+
+Unpaid Leave, if enabled
+
+Transition Plan, calculated as months × 20 weekdays
+
+Holidays do not count against Paid Leave, PTO, or Unpaid days, but do count toward FMLA if flagged in the AppFMLARules list.
+
+The app ensures leave blocks extend to maintain exact counts (e.g., 10 Paid Child Care Leave days, even if holidays interrupt).
+
+Uses pay period dates from AppPayrollCalendar2025 to annotate each leave day.
+
+Displays a readable summary on screen two using a Concat() text label, where each line shows:
+
+Day of week
+
+Date
+
+Leave type
+
+Pay period code and date range
+
+FMLA status (yes/no)
+
+Note: Transition Plan days always show “FMLA: no” in the summary, regardless of other rules.
