@@ -74,7 +74,9 @@ Transition Plan dates will always display FMLA: no.
 
 ## Usage Notes
 
-This version was built in June 2025. All calendar data references 2025. When testing, use 2025-based dates for accurate results.
+This version was built in June 2025. All calendar data references 2025. When testing, use 2025-based dates for accurate results. 
+
+This app may show a delegation warning in Power Apps Studio due to certain Power Fx expressions. However, the datasets used are small and within the 2,000-row limit, so functionality is not affected in this implementation.
 
 ## Potential Future Enhancements
 
